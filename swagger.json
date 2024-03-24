@@ -10,7 +10,7 @@
   "servers": [
     { "url": "http://localhost:3000/api", "description": "Dev Server" },
     {
-      "url": "http://your-pet-project-backend.vercel.app/api",
+      "url": "https://your-pet-project-backend.vercel.app/api",
       "description": "Prd Server"
     }
   ],
