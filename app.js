@@ -19,8 +19,56 @@ const app = express();
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
+const allowedOrigins = [
+  'https://nmarkhotsky.github.io',
+  'http://localhost:3000',
+];
+
+const allowedHeaders = [
+  'Access-Control-Allow-Origin',
+  'Access-Control-Allow-Headers',
+  'X-CSRF-Token',
+  'X-Requested-With',
+  'Accept',
+  'Accept-Version',
+  'Content-Length',
+  'Content-MD5',
+  'Content-Type',
+  'Date',
+  'X-Api-Version',
+  'Authorization',
+];
+
+const exposedHeaders = [
+  'Access-Control-Allow-Origin',
+  'Access-Control-Allow-Headers',
+  'X-CSRF-Token',
+  'X-Requested-With',
+  'Accept',
+  'Accept-Version',
+  'Content-Length',
+  'Content-MD5',
+  'Content-Type',
+  'Date',
+  'X-Api-Version',
+  'Authorization',
+  'Content-Range',
+  'X-Content-Range',
+];
+
+const corsOptions = {
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  allowedHeaders: allowedHeaders,
+  exposedHeaders: exposedHeaders,
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
 app.use(logger(formatsLogger));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use(express.static('public'));
