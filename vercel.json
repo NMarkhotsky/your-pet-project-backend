@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "mongoDB",
-  "builds": [{ "src": "server.js", "use": "@vercel/node" }],
+  "builds": [{ "src": "app.js", "use": "@vercel/node" }],
   "routes": [{ "src": "/(.*)", "dest": "/app.js" }]
 }
