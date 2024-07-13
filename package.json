@@ -2,6 +2,7 @@
   "name": "your-pet-project-backend",
   "version": "1.0.0",
   "description": "Final team project",
+  "main": "server.js",
   "scripts": {
     "start": "node ./server.js",
     "start:dev": "nodemon ./server.js"
