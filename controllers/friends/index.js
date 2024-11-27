@@ -1,5 +1,5 @@
-const { ourFriends } = require("./ourFriends");
+const { ourFriends } = require('./ourFriends');
 
 module.exports = {
-    ourFriends,
-}
+	ourFriends,
+};
