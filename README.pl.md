@@ -44,7 +44,7 @@
 ---
 
 ### <div align=center>Dokumentacja API (Swagger)</div>
-###### <div align=center>Zapoznaj się z dokumentacją API za pomocą interfejsu Swagger UI: [Swagger UI](https://mypets-backend.onrender.com/api/api-docs/).</div>
+###### <div align=center>Zapoznaj się z dokumentacją API za pomocą interfejsu Swagger UI: [Swagger UI](https://your-pet-project-backend.vercel.app/api/api-docs/).</div>
 
 ---
 
