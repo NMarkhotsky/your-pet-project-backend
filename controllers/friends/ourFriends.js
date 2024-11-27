@@ -5,7 +5,7 @@ const ourFriends = catchAsync(async (req, res) => {
 	const getFriends = await Friends.find();
 
 	res.status(200).json({
-		total: searchResult.length,
+		total: getFriends.length,
 		data: getFriends,
 	});
 });
