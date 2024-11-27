@@ -9,6 +9,7 @@ const options = {
 	customJsStr: 'console.log("Hello World")',
 };
 
+swaggerRouter.use('/swagger-ui', express.static('node_modules/swagger-ui-dist'));
 swaggerRouter.use('/', swaggerUi.serve);
 swaggerRouter.get('/', swaggerUi.setup(swaggerDocument, options));
 
