@@ -1,1772 +1,1772 @@
 {
-  "openapi": "3.0.1",
-  "info": {
-    "version": "1.0",
-    "title": "Swagger documentation for the Your Pet project",
-    "description": "This Swagger documentation provides a comprehensive guide for interacting with the backend services of our application in a user-friendly manner. It outlines all the available API endpoints and their functionalities, allowing developers and users to seamlessly interact with the backend.\n\nPurpose:\nThe main purpose of this Swagger documentation is to facilitate a smooth and efficient interaction between users and the backend of our application. By offering a clear and structured overview of the API endpoints, parameters, and responses, it enables developers to easily understand and integrate the backend services into their applications.\n\nFeatures:\n1. Detailed API Endpoint Information: Each API endpoint is documented with clear descriptions of its purpose, supported HTTP methods, required parameters, and expected responses.\n\n2. Parameter Definitions: Input parameters for each API endpoint are precisely defined, including data types, constraints, and optional/mandatory attributes.\n\n3. Response Schemas: The structure and data types of API responses are outlined through well-defined response schemas, ensuring predictability and ease of integration.\n\n4. Error Handling: The documentation elaborates on possible error scenarios, along with relevant error codes and messages, to assist developers in handling exceptional cases effectively.\n\n5. Testability and Postman Alternative: All API endpoints documented here are thoroughly tested and ready for use, eliminating the need to rely solely on Postman for backend testing.\n\nBy leveraging this Swagger documentation, developers can confidently utilize the backend services, expedite development, and build robust applications with seamless integration.\n\nNote: Please ensure to refer to the latest version of this Swagger documentation for up-to-date information on the backend API endpoints and functionalities."
-  },
-  "consumes": ["application/json", "multipart/form-data"],
-  "produces": ["application/json"],
-  "servers": [
-    { "url": "http://localhost:3000/api", "description": "Dev Server" },
-    {
-      "url": "https://mypets-backend.onrender.com/api",
-      "description": "Prd Server"
-    }
-  ],
-  "tags": [
-    {
-      "name": "Auth",
-      "description": "Authorization endpoints"
-    },
-    {
-      "name": "Users",
-      "description": "Users endpoints"
-    },
-    {
-      "name": "Pets",
-      "description": "Pets endpoints"
-    },
-    {
-      "name": "Notices",
-      "description": "Notices endpoints"
-    },
-    {
-      "name": "Friends",
-      "description": "Friends list"
-    },
-    {
-      "name": "News",
-      "description": "News endpoints"
-    }
-  ],
+	"openapi": "3.0.1",
+	"info": {
+		"version": "1.0",
+		"title": "Swagger documentation for the Your Pet project",
+		"description": "This Swagger documentation provides a comprehensive guide for interacting with the backend services of our application in a user-friendly manner. It outlines all the available API endpoints and their functionalities, allowing developers and users to seamlessly interact with the backend.\n\nPurpose:\nThe main purpose of this Swagger documentation is to facilitate a smooth and efficient interaction between users and the backend of our application. By offering a clear and structured overview of the API endpoints, parameters, and responses, it enables developers to easily understand and integrate the backend services into their applications.\n\nFeatures:\n1. Detailed API Endpoint Information: Each API endpoint is documented with clear descriptions of its purpose, supported HTTP methods, required parameters, and expected responses.\n\n2. Parameter Definitions: Input parameters for each API endpoint are precisely defined, including data types, constraints, and optional/mandatory attributes.\n\n3. Response Schemas: The structure and data types of API responses are outlined through well-defined response schemas, ensuring predictability and ease of integration.\n\n4. Error Handling: The documentation elaborates on possible error scenarios, along with relevant error codes and messages, to assist developers in handling exceptional cases effectively.\n\n5. Testability and Postman Alternative: All API endpoints documented here are thoroughly tested and ready for use, eliminating the need to rely solely on Postman for backend testing.\n\nBy leveraging this Swagger documentation, developers can confidently utilize the backend services, expedite development, and build robust applications with seamless integration.\n\nNote: Please ensure to refer to the latest version of this Swagger documentation for up-to-date information on the backend API endpoints and functionalities."
+	},
+	"consumes": ["application/json", "multipart/form-data"],
+	"produces": ["application/json"],
+	"servers": [
+		{ "url": "http://localhost:3000/api", "description": "Dev Server" },
+		{
+			"url": "https://your-pet-project-backend.vercel.app/api",
+			"description": "Prd Server"
+		}
+	],
+	"tags": [
+		{
+			"name": "Auth",
+			"description": "Authorization endpoints"
+		},
+		{
+			"name": "Users",
+			"description": "Users endpoints"
+		},
+		{
+			"name": "Pets",
+			"description": "Pets endpoints"
+		},
+		{
+			"name": "Notices",
+			"description": "Notices endpoints"
+		},
+		{
+			"name": "Friends",
+			"description": "Friends list"
+		},
+		{
+			"name": "News",
+			"description": "News endpoints"
+		}
+	],
 
-  "paths": {
-    "/auth/register": {
-      "post": {
-        "tags": ["Auth"],
-        "summary": "User registration",
+	"paths": {
+		"/auth/register": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "User registration",
 
-        "requestBody": {
-          "description": "Registration's object",
-          "required": true,
+				"requestBody": {
+					"description": "Registration's object",
+					"required": true,
 
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegistrationRequest"
-              }
-            }
-          }
-        },
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RegistrationRequest"
+							}
+						}
+					}
+				},
 
-        "responses": {
-          "201": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegistrationResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request (invalid request body)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestError"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Provided email already exists",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EmailExistError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/auth/login": {
-      "post": {
-        "tags": ["Auth"],
-        "summary": "User login",
+				"responses": {
+					"201": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RegistrationResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request (invalid request body)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestError"
+								}
+							}
+						}
+					},
+					"409": {
+						"description": "Provided email already exists",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/EmailExistError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "User login",
 
-        "requestBody": {
-          "description": "Login's object",
-          "required": true,
+				"requestBody": {
+					"description": "Login's object",
+					"required": true,
 
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
-            }
-          }
-        },
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/LoginRequest"
+							}
+						}
+					}
+				},
 
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LoginResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request (invalid request body)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Invalid user data when trying to log in",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/LoginError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/auth/logout": {
-      "post": {
-        "tags": ["Auth"],
-        "summary": "User logout",
-        "security": [{ "Bearer": [] }],
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LoginResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request (invalid request body)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Invalid user data when trying to log in",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LoginError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/auth/logout": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "User logout",
+				"security": [{ "Bearer": [] }],
 
-        "responses": {
-          "204": {
-            "description": "Logout successful",
-            "content": {}
-          },
-          "401": {
-            "description": "Unauthorized (Invalid access token)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+				"responses": {
+					"204": {
+						"description": "Logout successful",
+						"content": {}
+					},
+					"401": {
+						"description": "Unauthorized (Invalid access token)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/users": {
-      "get": {
-        "tags": ["Users"],
-        "summary": "Get the data object of the current user",
-        "security": [{ "Bearer": [] }],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CurrentUserResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "tags": ["Users"],
-        "consumes": ["multipart/form-data"],
-        "summary": "Update user's data by id",
-        "security": [{ "Bearer": [] }],
+		"/users": {
+			"get": {
+				"tags": ["Users"],
+				"summary": "Get the data object of the current user",
+				"security": [{ "Bearer": [] }],
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CurrentUserResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			},
+			"patch": {
+				"tags": ["Users"],
+				"consumes": ["multipart/form-data"],
+				"summary": "Update user's data by id",
+				"security": [{ "Bearer": [] }],
 
-        "requestBody": {
-          "description": "User's data object",
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/UpdateUserRequest"
-              }
-            }
-          }
-        },
+				"requestBody": {
+					"description": "User's data object",
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateUserRequest"
+							}
+						}
+					}
+				},
 
-        "responses": {
-          "200": {
-            "description": "Sucessful update operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdateUserResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request (invalid request body)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+				"responses": {
+					"200": {
+						"description": "Sucessful update operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UpdateUserResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request (invalid request body)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/pets": {
-      "post": {
-        "tags": ["Pets"],
-        "summary": "Add a user's pet",
-        "security": [{ "Bearer": [] }],
+		"/pets": {
+			"post": {
+				"tags": ["Pets"],
+				"summary": "Add a user's pet",
+				"security": [{ "Bearer": [] }],
 
-        "requestBody": {
-          "description": "User pet data object",
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/AddPetRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Successful operation of adding a pet",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddPetResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request (invalid request body)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "get": {
-        "tags": ["Pets"],
-        "summary": "Get a list of user's pets",
-        "security": [{ "Bearer": [] }],
+				"requestBody": {
+					"description": "User pet data object",
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"$ref": "#/components/schemas/AddPetRequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Successful operation of adding a pet",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AddPetResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request (invalid request body)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"tags": ["Pets"],
+				"summary": "Get a list of user's pets",
+				"security": [{ "Bearer": [] }],
 
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetPetListResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetPetListResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/pets/{petId}": {
-      "delete": {
-        "tags": ["Pets"],
-        "summary": "Delete a user's pet",
-        "security": [{ "Bearer": [] }],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "petId",
-            "required": true,
-            "type": "string",
-            "description": "Pet Id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation of remove a pet",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemovePetResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Unauthorized (Invalid access token)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+		"/pets/{petId}": {
+			"delete": {
+				"tags": ["Pets"],
+				"summary": "Delete a user's pet",
+				"security": [{ "Bearer": [] }],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "petId",
+						"required": true,
+						"type": "string",
+						"description": "Pet Id"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation of remove a pet",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RemovePetResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Unauthorized (Invalid access token)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/NotFoundError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/notices": {
-      "get": {
-        "tags": ["Notices"],
-        "summary": "Get all notices",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The page number for pagination",
-            "example": "1",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The maximum number of items per page",
-            "example": "12",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "category",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Filter notices by category",
-            "example": "in-good-hands",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "search",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Search for notices by keyword",
-            "example": "Кіт",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "sex",
-            "schema": {
-              "type": "string"
-            },
-            "description": "The sex of the pet",
-            "example": "male",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "young",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet young (0-1 year old)?",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "middle",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet middle (1+ - 2 year old)?",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "older",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet older (2+ year old)?",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetNoticesListResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": ["Notices"],
-        "summary": "Create a notice",
-        "security": [{ "Bearer": [] }],
+		"/notices": {
+			"get": {
+				"tags": ["Notices"],
+				"summary": "Get all notices",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The page number for pagination",
+						"example": "1",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The maximum number of items per page",
+						"example": "12",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "category",
+						"schema": {
+							"type": "string"
+						},
+						"description": "Filter notices by category",
+						"example": "in-good-hands",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"schema": {
+							"type": "string"
+						},
+						"description": "Search for notices by keyword",
+						"example": "Кіт",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "sex",
+						"schema": {
+							"type": "string"
+						},
+						"description": "The sex of the pet",
+						"example": "male",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "young",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet young (0-1 year old)?",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "middle",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet middle (1+ - 2 year old)?",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "older",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet older (2+ year old)?",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetNoticesListResponse"
+								}
+							}
+						}
+					}
+				}
+			},
+			"post": {
+				"tags": ["Notices"],
+				"summary": "Create a notice",
+				"security": [{ "Bearer": [] }],
 
-        "requestBody": {
-          "description": "Notice's pet data object",
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "$ref": "#/components/schemas/AddNoticeRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Successful operation of adding a notice",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AddNoticeResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request (invalid request body)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notices/{noticeId}": {
-      "get": {
-        "tags": ["Notices"],
-        "summary": "Get a notice by id",
-        "parameters": [
-          {
-            "in": "path",
-            "name": "noticeId",
-            "type": "string",
-            "required": true,
-            "description": "A notice's id"
-          }
-        ],
+				"requestBody": {
+					"description": "Notice's pet data object",
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"$ref": "#/components/schemas/AddNoticeRequest"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Successful operation of adding a notice",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AddNoticeResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request (invalid request body)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notices/{noticeId}": {
+			"get": {
+				"tags": ["Notices"],
+				"summary": "Get a notice by id",
+				"parameters": [
+					{
+						"in": "path",
+						"name": "noticeId",
+						"type": "string",
+						"required": true,
+						"description": "A notice's id"
+					}
+				],
 
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetNoticeByIdResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Unauthorized (Invalid access token)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundError"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": ["Notices"],
-        "summary": "Delete a notice by id",
-        "security": [{ "Bearer": [] }],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "noticeId",
-            "required": true,
-            "type": "string",
-            "description": "A notice's id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation of remove a notice",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RemoveNoticeByIdResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Unauthorized (Invalid access token)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotFoundError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetNoticeByIdResponse"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Unauthorized (Invalid access token)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/NotFoundError"
+								}
+							}
+						}
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Notices"],
+				"summary": "Delete a notice by id",
+				"security": [{ "Bearer": [] }],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "noticeId",
+						"required": true,
+						"type": "string",
+						"description": "A notice's id"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation of remove a notice",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RemoveNoticeByIdResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Unauthorized (Invalid access token)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/NotFoundError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/notices/self": {
-      "get": {
-        "tags": ["Notices"],
-        "summary": "Get all current user notices",
-        "security": [{ "Bearer": [] }],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The page number for pagination",
-            "example": "1",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The maximum number of items per page",
-            "example": "12",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "search",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Search for notices by keyword",
-            "example": "Кіт",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "sex",
-            "schema": {
-              "type": "string"
-            },
-            "description": "The sex of the pet",
-            "example": "male",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "young",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet young (0-1 year old)?",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "middle",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet middle (1+ - 2 year old)?",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "older",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet older (2+ year old)?",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetNoticesListResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+		"/notices/self": {
+			"get": {
+				"tags": ["Notices"],
+				"summary": "Get all current user notices",
+				"security": [{ "Bearer": [] }],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The page number for pagination",
+						"example": "1",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The maximum number of items per page",
+						"example": "12",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"schema": {
+							"type": "string"
+						},
+						"description": "Search for notices by keyword",
+						"example": "Кіт",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "sex",
+						"schema": {
+							"type": "string"
+						},
+						"description": "The sex of the pet",
+						"example": "male",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "young",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet young (0-1 year old)?",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "middle",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet middle (1+ - 2 year old)?",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "older",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet older (2+ year old)?",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetNoticesListResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/notices/favorites": {
-      "get": {
-        "tags": ["Notices"],
-        "summary": "Get user's favorites notices",
-        "security": [{ "Bearer": [] }],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The page number for pagination",
-            "example": "1",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The maximum number of items per page",
-            "example": "12",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "search",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Search for notices by keyword",
-            "example": "Кіт",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "sex",
-            "schema": {
-              "type": "string"
-            },
-            "description": "The sex of the pet",
-            "example": "male",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "young",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet young (0-1 year old)?",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "middle",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet middle (1+ - 2 year old)?",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "older",
-            "schema": {
-              "type": "boolean"
-            },
-            "description": "Is the pet older (2+ year old)?",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetNoticesListResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/notices/favorites/{noticeId}": {
-      "patch": {
-        "tags": ["Notices"],
-        "summary": "Update favourites in a notice",
-        "security": [{ "Bearer": [] }],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "noticeId",
-            "required": true,
-            "type": "string",
-            "description": "A notice's id"
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Successful operation of add/remove a notice in favorite list",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UpdateNoticeByIdResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request (invalid request body)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BadRequestError"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Headers of user requests are missing a token",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UnauthorizedError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+		"/notices/favorites": {
+			"get": {
+				"tags": ["Notices"],
+				"summary": "Get user's favorites notices",
+				"security": [{ "Bearer": [] }],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The page number for pagination",
+						"example": "1",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The maximum number of items per page",
+						"example": "12",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"schema": {
+							"type": "string"
+						},
+						"description": "Search for notices by keyword",
+						"example": "Кіт",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "sex",
+						"schema": {
+							"type": "string"
+						},
+						"description": "The sex of the pet",
+						"example": "male",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "young",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet young (0-1 year old)?",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "middle",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet middle (1+ - 2 year old)?",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "older",
+						"schema": {
+							"type": "boolean"
+						},
+						"description": "Is the pet older (2+ year old)?",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetNoticesListResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/notices/favorites/{noticeId}": {
+			"patch": {
+				"tags": ["Notices"],
+				"summary": "Update favourites in a notice",
+				"security": [{ "Bearer": [] }],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "noticeId",
+						"required": true,
+						"type": "string",
+						"description": "A notice's id"
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Successful operation of add/remove a notice in favorite list",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UpdateNoticeByIdResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request (invalid request body)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BadRequestError"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Headers of user requests are missing a token",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UnauthorizedError"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/friends": {
-      "get": {
-        "tags": ["Friends"],
-        "summary": "Get a list of out friends",
+		"/friends": {
+			"get": {
+				"tags": ["Friends"],
+				"summary": "Get a list of out friends",
 
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetFriendsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetFriendsResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 
-    "/news": {
-      "get": {
-        "tags": ["News"],
-        "summary": "Get a list of news",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "page",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The page number for pagination",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "limit",
-            "schema": {
-              "type": "integer"
-            },
-            "description": "The maximum number of items per page",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "category",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Filter notices by category",
-            "required": false
-          },
-          {
-            "in": "query",
-            "name": "search",
-            "schema": {
-              "type": "string"
-            },
-            "description": "Search for notices by keyword",
-            "required": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GetNewsResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
+		"/news": {
+			"get": {
+				"tags": ["News"],
+				"summary": "Get a list of news",
+				"parameters": [
+					{
+						"in": "query",
+						"name": "page",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The page number for pagination",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "limit",
+						"schema": {
+							"type": "integer"
+						},
+						"description": "The maximum number of items per page",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "category",
+						"schema": {
+							"type": "string"
+						},
+						"description": "Filter notices by category",
+						"required": false
+					},
+					{
+						"in": "query",
+						"name": "search",
+						"schema": {
+							"type": "string"
+						},
+						"description": "Search for notices by keyword",
+						"required": false
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful operation",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetNewsResponse"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
 
-  "components": {
-    "schemas": {
-      "RegistrationRequest": {
-        "type": "object",
-        "required": ["name", "email", "password"],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "User's name",
-            "example": "UserName"
-          },
-          "email": {
-            "type": "string",
-            "description": "User's email",
-            "format": "email"
-          },
-          "password": {
-            "type": "string",
-            "description": "User's password",
-            "example": "Qwerty123"
-          }
-        }
-      },
-      "RegistrationResponse": {
-        "type": "object",
-        "properties": {
-          "user": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "Username",
-                "example": "Jhon"
-              }
-            }
-          },
-          "token": {
-            "type": "string",
-            "description": "User's access token",
-            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTQ0NjhlMDNjc3E3OTZhZDk3N2Q1YiJ9.Yh8Xgp-e6DL8-23gfFEUaJK6G19qahZPlsrYkLrDccs"
-          },
-          "isNewUser": {
-            "type": "boolen",
-            "description": "Always 'true' after registration",
-            "example": "true"
-          }
-        }
-      },
-      "EmailExistError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Response message for error code 409",
-            "example": "Email already in use"
-          }
-        }
-      },
+	"components": {
+		"schemas": {
+			"RegistrationRequest": {
+				"type": "object",
+				"required": ["name", "email", "password"],
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "User's name",
+						"example": "UserName"
+					},
+					"email": {
+						"type": "string",
+						"description": "User's email",
+						"format": "email"
+					},
+					"password": {
+						"type": "string",
+						"description": "User's password",
+						"example": "Qwerty123"
+					}
+				}
+			},
+			"RegistrationResponse": {
+				"type": "object",
+				"properties": {
+					"user": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"description": "Username",
+								"example": "Jhon"
+							}
+						}
+					},
+					"token": {
+						"type": "string",
+						"description": "User's access token",
+						"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTQ0NjhlMDNjc3E3OTZhZDk3N2Q1YiJ9.Yh8Xgp-e6DL8-23gfFEUaJK6G19qahZPlsrYkLrDccs"
+					},
+					"isNewUser": {
+						"type": "boolen",
+						"description": "Always 'true' after registration",
+						"example": "true"
+					}
+				}
+			},
+			"EmailExistError": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "Response message for error code 409",
+						"example": "Email already in use"
+					}
+				}
+			},
 
-      "LoginRequest": {
-        "type": "object",
-        "required": ["email", "password"],
-        "properties": {
-          "email": {
-            "type": "string",
-            "description": "User's email",
-            "format": "email"
-          },
-          "password": {
-            "type": "string",
-            "description": "User's password",
-            "example": "Qwerty123"
-          }
-        }
-      },
-      "LoginResponse": {
-        "type": "object",
-        "properties": {
-          "user": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "description": "Username",
-                "example": "Jhon"
-              }
-            }
-          },
-          "token": {
-            "type": "string",
-            "description": "User's access token",
-            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTQ0NjhlMDNjc3E3OTZhZDk3N2Q1YiJ9.Yh8Xgp-e6DL8-23gfFEUaJK6G19qahZPlsrYkLrDccs"
-          }
-        }
-      },
-      "LoginError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Invalid user data when trying to log in",
-            "example": "Email or password is wrong"
-          }
-        }
-      },
+			"LoginRequest": {
+				"type": "object",
+				"required": ["email", "password"],
+				"properties": {
+					"email": {
+						"type": "string",
+						"description": "User's email",
+						"format": "email"
+					},
+					"password": {
+						"type": "string",
+						"description": "User's password",
+						"example": "Qwerty123"
+					}
+				}
+			},
+			"LoginResponse": {
+				"type": "object",
+				"properties": {
+					"user": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"description": "Username",
+								"example": "Jhon"
+							}
+						}
+					},
+					"token": {
+						"type": "string",
+						"description": "User's access token",
+						"example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTQ0NjhlMDNjc3E3OTZhZDk3N2Q1YiJ9.Yh8Xgp-e6DL8-23gfFEUaJK6G19qahZPlsrYkLrDccs"
+					}
+				}
+			},
+			"LoginError": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "Invalid user data when trying to log in",
+						"example": "Email or password is wrong"
+					}
+				}
+			},
 
-      "LogoutRequest": {
-        "type": "object",
-        "required": ["_id"],
-        "properties": {
-          "_id": {
-            "type": "string",
-            "description": "User's id",
-            "example": "121%*jSF214+S$fa%!21"
-          }
-        }
-      },
-      "LogoutResponse": {
-        "type": "object",
-        "description": "Logout response without any content"
-      },
+			"LogoutRequest": {
+				"type": "object",
+				"required": ["_id"],
+				"properties": {
+					"_id": {
+						"type": "string",
+						"description": "User's id",
+						"example": "121%*jSF214+S$fa%!21"
+					}
+				}
+			},
+			"LogoutResponse": {
+				"type": "object",
+				"description": "Logout response without any content"
+			},
 
-      "CurrentUserResponse": {
-        "type": "object",
-        "properties": {
-          "user": {
-            "type": "object",
-            "properties": {
-              "_id": {
-                "type": "string",
-                "description": "User's Id",
-                "example": "64bc6fad76dd5e12883fb322"
-              },
-              "name": {
-                "type": "string",
-                "description": "Username",
-                "example": "Jhon"
-              },
-              "email": {
-                "type": "string",
-                "description": "User's email",
-                "format": "email",
-                "example": "user@example.com"
-              },
-              "avatarURL": {
-                "type": "string",
-                "description": "The URL to the user's avatar",
-                "example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/eauamgos5bwx49rxsp5e.jpg"
-              }
-            }
-          }
-        }
-      },
+			"CurrentUserResponse": {
+				"type": "object",
+				"properties": {
+					"user": {
+						"type": "object",
+						"properties": {
+							"_id": {
+								"type": "string",
+								"description": "User's Id",
+								"example": "64bc6fad76dd5e12883fb322"
+							},
+							"name": {
+								"type": "string",
+								"description": "Username",
+								"example": "Jhon"
+							},
+							"email": {
+								"type": "string",
+								"description": "User's email",
+								"format": "email",
+								"example": "user@example.com"
+							},
+							"avatarURL": {
+								"type": "string",
+								"description": "The URL to the user's avatar",
+								"example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/eauamgos5bwx49rxsp5e.jpg"
+							}
+						}
+					}
+				}
+			},
 
-      "UpdateUserRequest": {
-        "type": "object",
-        "required": ["name", "birthday", "phone", "city", "avatar"],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Username",
-            "example": "Jhon"
-          },
-          "birthday": {
-            "type": "string",
-            "format": "date",
-            "description": "User's birthday in format YYYY-MM-DD",
-            "example": "2000-01-01"
-          },
-          "phone": {
-            "type": "string",
-            "description": "User's phone number",
-            "example": "+380000000000"
-          },
-          "city": {
-            "type": "string",
-            "description": "User's city",
-            "example": "Lviv"
-          },
-          "avatar": {
-            "type": "string",
-            "description": "URL to user's avatar image",
-            "required": true,
-            "format": "binary"
-          }
-        }
-      },
-      "UpdateUserResponse": {
-        "type": "object",
-        "properties": {
-          "user": {
-            "type": "object",
-            "properties": {
-              "_id": {
-                "type": "string",
-                "description": "User's Id",
-                "example": "64bc6fad76dd5e12883fb322"
-              },
-              "name": {
-                "type": "string",
-                "description": "Username",
-                "example": "Jhon"
-              },
-              "email": {
-                "type": "string",
-                "description": "User's email",
-                "format": "email",
-                "example": "user@example.com"
-              },
-              "phone": {
-                "type": "string",
-                "description": "User's phone number",
-                "example": "+380000000000"
-              },
-              "birthday": {
-                "type": "string",
-                "format": "date",
-                "description": "User's birthday in format YYYY-MM-DD",
-                "example": "1990-01-01"
-              },
-              "city": {
-                "type": "string",
-                "description": "User's city",
-                "example": "Lviv"
-              },
-              "avatarURL": {
-                "type": "string",
-                "description": "URL to user's avatar image",
-                "example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
-              }
-            }
-          }
-        }
-      },
+			"UpdateUserRequest": {
+				"type": "object",
+				"required": ["name", "birthday", "phone", "city", "avatar"],
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "Username",
+						"example": "Jhon"
+					},
+					"birthday": {
+						"type": "string",
+						"format": "date",
+						"description": "User's birthday in format YYYY-MM-DD",
+						"example": "2000-01-01"
+					},
+					"phone": {
+						"type": "string",
+						"description": "User's phone number",
+						"example": "+380000000000"
+					},
+					"city": {
+						"type": "string",
+						"description": "User's city",
+						"example": "Lviv"
+					},
+					"avatar": {
+						"type": "string",
+						"description": "URL to user's avatar image",
+						"required": true,
+						"format": "binary"
+					}
+				}
+			},
+			"UpdateUserResponse": {
+				"type": "object",
+				"properties": {
+					"user": {
+						"type": "object",
+						"properties": {
+							"_id": {
+								"type": "string",
+								"description": "User's Id",
+								"example": "64bc6fad76dd5e12883fb322"
+							},
+							"name": {
+								"type": "string",
+								"description": "Username",
+								"example": "Jhon"
+							},
+							"email": {
+								"type": "string",
+								"description": "User's email",
+								"format": "email",
+								"example": "user@example.com"
+							},
+							"phone": {
+								"type": "string",
+								"description": "User's phone number",
+								"example": "+380000000000"
+							},
+							"birthday": {
+								"type": "string",
+								"format": "date",
+								"description": "User's birthday in format YYYY-MM-DD",
+								"example": "1990-01-01"
+							},
+							"city": {
+								"type": "string",
+								"description": "User's city",
+								"example": "Lviv"
+							},
+							"avatarURL": {
+								"type": "string",
+								"description": "URL to user's avatar image",
+								"example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
+							}
+						}
+					}
+				}
+			},
 
-      "AddPetRequest": {
-        "type": "object",
-        "required": ["name", "birthday", "type", "comments", "photo"],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Pet's name",
-            "example": "Barsik"
-          },
-          "birthday": {
-            "type": "string",
-            "description": "Pet's birthday in format YYYY-MM-DD",
-            "example": "2017-05-15"
-          },
-          "type": {
-            "type": "string",
-            "description": "Pet's type (e.g., Persian cat, Basenji, Pomeranian, Pug)",
-            "example": "French bulldog"
-          },
-          "comments": {
-            "type": "string",
-            "description": "Additional comments about the pet",
-            "example": "A playful and friendly dog."
-          },
-          "photo": {
-            "type": "string",
-            "description": "URL to user's avatar image",
-            "required": true,
-            "format": "binary"
-          }
-        }
-      },
-      "AddPetResponse": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "response message",
-            "example": "Your pet is added"
-          }
-        }
-      },
+			"AddPetRequest": {
+				"type": "object",
+				"required": ["name", "birthday", "type", "comments", "photo"],
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "Pet's name",
+						"example": "Barsik"
+					},
+					"birthday": {
+						"type": "string",
+						"description": "Pet's birthday in format YYYY-MM-DD",
+						"example": "2017-05-15"
+					},
+					"type": {
+						"type": "string",
+						"description": "Pet's type (e.g., Persian cat, Basenji, Pomeranian, Pug)",
+						"example": "French bulldog"
+					},
+					"comments": {
+						"type": "string",
+						"description": "Additional comments about the pet",
+						"example": "A playful and friendly dog."
+					},
+					"photo": {
+						"type": "string",
+						"description": "URL to user's avatar image",
+						"required": true,
+						"format": "binary"
+					}
+				}
+			},
+			"AddPetResponse": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "response message",
+						"example": "Your pet is added"
+					}
+				}
+			},
 
-      "GetPetListResponse": {
-        "type": "object",
-        "properties": {
-          "pets": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "_id": {
-                  "type": "string",
-                  "description": "Pet Id",
-                  "example": "64bc46df71b9b523c278cccb"
-                },
-                "name": {
-                  "type": "string",
-                  "description": "Pet's name",
-                  "example": "Barsik"
-                },
-                "birthday": {
-                  "type": "string",
-                  "description": "Pet's birthday in format YYYY-MM-DD",
-                  "example": "2017-05-15"
-                },
-                "type": {
-                  "type": "string",
-                  "description": "Pet's type (e.g., Persian cat, Basenji, Pomeranian, Pug)",
-                  "example": "French bulldog"
-                },
-                "comments": {
-                  "type": "string",
-                  "description": "Additional comments about the pet",
-                  "example": "A playful and friendly dog."
-                },
-                "photoURL": {
-                  "type": "string",
-                  "description": "URL to the pet's photo",
-                  "example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
-                }
-              }
-            }
-          }
-        }
-      },
+			"GetPetListResponse": {
+				"type": "object",
+				"properties": {
+					"pets": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"_id": {
+									"type": "string",
+									"description": "Pet Id",
+									"example": "64bc46df71b9b523c278cccb"
+								},
+								"name": {
+									"type": "string",
+									"description": "Pet's name",
+									"example": "Barsik"
+								},
+								"birthday": {
+									"type": "string",
+									"description": "Pet's birthday in format YYYY-MM-DD",
+									"example": "2017-05-15"
+								},
+								"type": {
+									"type": "string",
+									"description": "Pet's type (e.g., Persian cat, Basenji, Pomeranian, Pug)",
+									"example": "French bulldog"
+								},
+								"comments": {
+									"type": "string",
+									"description": "Additional comments about the pet",
+									"example": "A playful and friendly dog."
+								},
+								"photoURL": {
+									"type": "string",
+									"description": "URL to the pet's photo",
+									"example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
+								}
+							}
+						}
+					}
+				}
+			},
 
-      "RemovePetResponse": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Pet has been removed."
-          }
-        }
-      },
+			"RemovePetResponse": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"example": "Pet has been removed."
+					}
+				}
+			},
 
-      "GetNoticesListResponse": {
-        "type": "object",
-        "properties": {
-          "total": {
-            "type": "integer",
-            "description": "Total notices",
-            "example": 1
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "type": "string",
-                  "description": "Notice's ID",
-                  "example": "02aa6jyt15cs5e00020qw24d"
-                },
-                "noticeType": {
-                  "type": "string",
-                  "description": "Notice's type",
-                  "example": "in good hands"
-                },
-                "title": {
-                  "type": "string",
-                  "description": "Notice's title",
-                  "example": "Cute dog looking for a home"
-                },
-                "sex": {
-                  "type": "string",
-                  "description": "Pet's sex",
-                  "example": "male"
-                },
-                "location": {
-                  "type": "string",
-                  "description": "Notice's location",
-                  "example": "Lviv"
-                },
-                "photoURL": {
-                  "type": "string",
-                  "description": "Pet's photo in notice",
-                  "example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
-                },
-                "favorite": {
-                  "type": "integer",
-                  "description": "Quantity of favorites",
-                  "example": "1"
-                },
-                "isFavorite": {
-                  "type": "boolean",
-                  "description": "Is the notices favorite for current user?",
-                  "example": false
-                },
-                "isOwn": {
-                  "type": "boolean",
-                  "description": "Is the notices created by current user?",
-                  "example": true
-                },
-                "age": {
-                  "type": "string",
-                  "description": "Pet age",
-                  "example": "4 years"
-                }
-              }
-            }
-          }
-        }
-      },
+			"GetNoticesListResponse": {
+				"type": "object",
+				"properties": {
+					"total": {
+						"type": "integer",
+						"description": "Total notices",
+						"example": 1
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "string",
+									"description": "Notice's ID",
+									"example": "02aa6jyt15cs5e00020qw24d"
+								},
+								"noticeType": {
+									"type": "string",
+									"description": "Notice's type",
+									"example": "in good hands"
+								},
+								"title": {
+									"type": "string",
+									"description": "Notice's title",
+									"example": "Cute dog looking for a home"
+								},
+								"sex": {
+									"type": "string",
+									"description": "Pet's sex",
+									"example": "male"
+								},
+								"location": {
+									"type": "string",
+									"description": "Notice's location",
+									"example": "Lviv"
+								},
+								"photoURL": {
+									"type": "string",
+									"description": "Pet's photo in notice",
+									"example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
+								},
+								"favorite": {
+									"type": "integer",
+									"description": "Quantity of favorites",
+									"example": "1"
+								},
+								"isFavorite": {
+									"type": "boolean",
+									"description": "Is the notices favorite for current user?",
+									"example": false
+								},
+								"isOwn": {
+									"type": "boolean",
+									"description": "Is the notices created by current user?",
+									"example": true
+								},
+								"age": {
+									"type": "string",
+									"description": "Pet age",
+									"example": "4 years"
+								}
+							}
+						}
+					}
+				}
+			},
 
-      "AddNoticeRequest": {
-        "type": "object",
-        "required": [
-          "noticeType",
-          "title",
-          "name",
-          "birthday",
-          "petType",
-          "sex",
-          "location",
-          "price",
-          "comments",
-          "photo"
-        ],
-        "properties": {
-          "noticeType": {
-            "type": "string",
-            "description": "Notice's type",
-            "example": "sell"
-          },
-          "title": {
-            "type": "string",
-            "description": "Notice's title",
-            "example": "Cute dog looking for a home"
-          },
-          "name": {
-            "type": "string",
-            "description": "Pet's name",
-            "example": "Rich"
-          },
-          "birthday": {
-            "type": "string",
-            "description": "Pet's birthday in format YYYY-MM-DD",
-            "example": "2020-09-21"
-          },
-          "petType": {
-            "type": "string",
-            "description": "Pet's type",
-            "example": "Pomeranian"
-          },
-          "sex": {
-            "type": "string",
-            "description": "Pet's sex",
-            "example": "male"
-          },
-          "location": {
-            "type": "string",
-            "description": "Notice's location",
-            "example": "Lviv"
-          },
-          "price": {
-            "type": "integer",
-            "description": "Notice's price (Available only if type of notice equal sell)",
-            "example": 12500
-          },
-          "comments": {
-            "type": "string",
-            "description": "Notice's comment",
-            "example": "Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too!"
-          },
-          "photo": {
-            "type": "string",
-            "description": "URL to user's avatar image",
-            "required": true,
-            "format": "binary"
-          }
-        }
-      },
-      "AddNoticeResponse": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Successful operation",
-            "example": "Your ad has been created"
-          }
-        }
-      },
+			"AddNoticeRequest": {
+				"type": "object",
+				"required": [
+					"noticeType",
+					"title",
+					"name",
+					"birthday",
+					"petType",
+					"sex",
+					"location",
+					"price",
+					"comments",
+					"photo"
+				],
+				"properties": {
+					"noticeType": {
+						"type": "string",
+						"description": "Notice's type",
+						"example": "sell"
+					},
+					"title": {
+						"type": "string",
+						"description": "Notice's title",
+						"example": "Cute dog looking for a home"
+					},
+					"name": {
+						"type": "string",
+						"description": "Pet's name",
+						"example": "Rich"
+					},
+					"birthday": {
+						"type": "string",
+						"description": "Pet's birthday in format YYYY-MM-DD",
+						"example": "2020-09-21"
+					},
+					"petType": {
+						"type": "string",
+						"description": "Pet's type",
+						"example": "Pomeranian"
+					},
+					"sex": {
+						"type": "string",
+						"description": "Pet's sex",
+						"example": "male"
+					},
+					"location": {
+						"type": "string",
+						"description": "Notice's location",
+						"example": "Lviv"
+					},
+					"price": {
+						"type": "integer",
+						"description": "Notice's price (Available only if type of notice equal sell)",
+						"example": 12500
+					},
+					"comments": {
+						"type": "string",
+						"description": "Notice's comment",
+						"example": "Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too!"
+					},
+					"photo": {
+						"type": "string",
+						"description": "URL to user's avatar image",
+						"required": true,
+						"format": "binary"
+					}
+				}
+			},
+			"AddNoticeResponse": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "Successful operation",
+						"example": "Your ad has been created"
+					}
+				}
+			},
 
-      "GetNoticeByIdResponse": {
-        "type": "object",
-        "properties": {
-          "notice": {
-            "type": "object",
-            "properties": {
-              "_id": {
-                "type": "string",
-                "description": "Pet's id",
-                "example": "64c17828267f01bddcf3668b"
-              },
-              "noticeType": {
-                "type": "string",
-                "description": "Notice's type",
-                "example": "sell"
-              },
-              "title": {
-                "type": "string",
-                "description": "Notice's title",
-                "example": "Cute dog looking for a home"
-              },
-              "name": {
-                "type": "string",
-                "description": "Pet's name",
-                "example": "Rich"
-              },
-              "birthday": {
-                "type": "string",
-                "description": "Pet's birthday in format YYYY-MM-DD",
-                "example": "21.09.2020"
-              },
-              "petType": {
-                "type": "string",
-                "description": "Pet's type",
-                "example": "Pomeranian"
-              },
-              "sex": {
-                "type": "string",
-                "description": "Pet's sex",
-                "example": "male"
-              },
-              "location": {
-                "type": "string",
-                "description": "Notice's location",
-                "example": "Lviv"
-              },
-              "price": {
-                "type": "integer",
-                "description": "Notice's price (Available only if type of notice equal sell)",
-                "example": 12500
-              },
-              "comments": {
-                "type": "string",
-                "description": "Notice's comment",
-                "example": "Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too!"
-              },
-              "photoURL": {
-                "type": "string",
-                "description": "Pet's photo in notice",
-                "example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
-              },
-              "favorite": {
-                "type": "integer",
-                "description": "Number of users who have favorited this notification",
-                "example": "1"
-              },
-              "isFavorite": {
-                "type": "boolean",
-                "description": "The favorite status for current user",
-                "example": false
-              },
-              "isOwn": {
-                "type": "boolean",
-                "description": "Is the notices created by current user?",
-                "example": true
-              },
-              "createdAt": {
-                "type": "string",
-                "example": "2023-07-23T19:21:53.954Z"
-              },
-              "ownerEmail": {
-                "type": "string",
-                "description": "Owner's email",
-                "example": "testswag@example.com"
-              },
-              "ownerPhone": {
-                "type": "string",
-                "description": "Owner's phone",
-                "example": "+380630000000"
-              }
-            }
-          }
-        }
-      },
-      "RemoveNoticeByIdResponse": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Notice has been removed."
-          }
-        }
-      },
-      "UpdateNoticeByIdResponse": {
-        "type": "object",
-        "properties": {
-          "notice": {
-            "type": "object",
-            "properties": {
-              "_id": {
-                "type": "string",
-                "description": "Pet's id",
-                "example": "7c7904d4-28a5-11ee-be56-0242ac120002"
-              },
-              "noticeType": {
-                "type": "string",
-                "description": "Notice's type",
-                "example": "sell"
-              },
-              "title": {
-                "type": "string",
-                "description": "Notice's title",
-                "example": "Cute dog looking for a home"
-              },
-              "name": {
-                "type": "string",
-                "description": "Pet's name",
-                "example": "Rich"
-              },
-              "birthday": {
-                "type": "string",
-                "description": "Pet's birthday in format YYYY-MM-DD",
-                "example": "21.09.2020"
-              },
-              "petType": {
-                "type": "string",
-                "description": "Pet's type",
-                "example": "Pomeranian"
-              },
-              "sex": {
-                "type": "string",
-                "description": "Pet's sex",
-                "example": "male"
-              },
-              "location": {
-                "type": "string",
-                "description": "Notice's location",
-                "example": "Lviv"
-              },
-              "price": {
-                "type": "integer",
-                "description": "Notice's price (Available only if type of notice equal sell)",
-                "example": 12500
-              },
-              "comments": {
-                "type": "string",
-                "description": "Notice's comment",
-                "example": "Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too!"
-              },
-              "photoURL": {
-                "type": "string",
-                "description": "Pet's photo in notice",
-                "example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
-              },
-              "favorite": {
-                "type": "integer",
-                "description": "Quantity of users who have favorited this notification",
-                "example": 2
-              },
-              "isFavorite": {
-                "type": "boolean",
-                "description": "The favorite status for current user",
-                "false": false
-              },
-              "createdAt": {
-                "type": "string",
-                "example": "2023-07-23T19:21:53.954Z"
-              },
-              "ownerEmail": {
-                "type": "string",
-                "description": "Owner's email",
-                "example": "testswag@example.com"
-              },
-              "ownerPhone": {
-                "type": "string",
-                "description": "Owner's phone",
-                "example": "+380000000000"
-              }
-            }
-          }
-        }
-      },
+			"GetNoticeByIdResponse": {
+				"type": "object",
+				"properties": {
+					"notice": {
+						"type": "object",
+						"properties": {
+							"_id": {
+								"type": "string",
+								"description": "Pet's id",
+								"example": "64c17828267f01bddcf3668b"
+							},
+							"noticeType": {
+								"type": "string",
+								"description": "Notice's type",
+								"example": "sell"
+							},
+							"title": {
+								"type": "string",
+								"description": "Notice's title",
+								"example": "Cute dog looking for a home"
+							},
+							"name": {
+								"type": "string",
+								"description": "Pet's name",
+								"example": "Rich"
+							},
+							"birthday": {
+								"type": "string",
+								"description": "Pet's birthday in format YYYY-MM-DD",
+								"example": "21.09.2020"
+							},
+							"petType": {
+								"type": "string",
+								"description": "Pet's type",
+								"example": "Pomeranian"
+							},
+							"sex": {
+								"type": "string",
+								"description": "Pet's sex",
+								"example": "male"
+							},
+							"location": {
+								"type": "string",
+								"description": "Notice's location",
+								"example": "Lviv"
+							},
+							"price": {
+								"type": "integer",
+								"description": "Notice's price (Available only if type of notice equal sell)",
+								"example": 12500
+							},
+							"comments": {
+								"type": "string",
+								"description": "Notice's comment",
+								"example": "Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too!"
+							},
+							"photoURL": {
+								"type": "string",
+								"description": "Pet's photo in notice",
+								"example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
+							},
+							"favorite": {
+								"type": "integer",
+								"description": "Number of users who have favorited this notification",
+								"example": "1"
+							},
+							"isFavorite": {
+								"type": "boolean",
+								"description": "The favorite status for current user",
+								"example": false
+							},
+							"isOwn": {
+								"type": "boolean",
+								"description": "Is the notices created by current user?",
+								"example": true
+							},
+							"createdAt": {
+								"type": "string",
+								"example": "2023-07-23T19:21:53.954Z"
+							},
+							"ownerEmail": {
+								"type": "string",
+								"description": "Owner's email",
+								"example": "testswag@example.com"
+							},
+							"ownerPhone": {
+								"type": "string",
+								"description": "Owner's phone",
+								"example": "+380630000000"
+							}
+						}
+					}
+				}
+			},
+			"RemoveNoticeByIdResponse": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"example": "Notice has been removed."
+					}
+				}
+			},
+			"UpdateNoticeByIdResponse": {
+				"type": "object",
+				"properties": {
+					"notice": {
+						"type": "object",
+						"properties": {
+							"_id": {
+								"type": "string",
+								"description": "Pet's id",
+								"example": "7c7904d4-28a5-11ee-be56-0242ac120002"
+							},
+							"noticeType": {
+								"type": "string",
+								"description": "Notice's type",
+								"example": "sell"
+							},
+							"title": {
+								"type": "string",
+								"description": "Notice's title",
+								"example": "Cute dog looking for a home"
+							},
+							"name": {
+								"type": "string",
+								"description": "Pet's name",
+								"example": "Rich"
+							},
+							"birthday": {
+								"type": "string",
+								"description": "Pet's birthday in format YYYY-MM-DD",
+								"example": "21.09.2020"
+							},
+							"petType": {
+								"type": "string",
+								"description": "Pet's type",
+								"example": "Pomeranian"
+							},
+							"sex": {
+								"type": "string",
+								"description": "Pet's sex",
+								"example": "male"
+							},
+							"location": {
+								"type": "string",
+								"description": "Notice's location",
+								"example": "Lviv"
+							},
+							"price": {
+								"type": "integer",
+								"description": "Notice's price (Available only if type of notice equal sell)",
+								"example": 12500
+							},
+							"comments": {
+								"type": "string",
+								"description": "Notice's comment",
+								"example": "Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too!"
+							},
+							"photoURL": {
+								"type": "string",
+								"description": "Pet's photo in notice",
+								"example": "https://res.cloudinary.com/doe8sk18b/image/upload/v1690028176/wwesmackd0wnq24wwap0e.jpg"
+							},
+							"favorite": {
+								"type": "integer",
+								"description": "Quantity of users who have favorited this notification",
+								"example": 2
+							},
+							"isFavorite": {
+								"type": "boolean",
+								"description": "The favorite status for current user",
+								"false": false
+							},
+							"createdAt": {
+								"type": "string",
+								"example": "2023-07-23T19:21:53.954Z"
+							},
+							"ownerEmail": {
+								"type": "string",
+								"description": "Owner's email",
+								"example": "testswag@example.com"
+							},
+							"ownerPhone": {
+								"type": "string",
+								"description": "Owner's phone",
+								"example": "+380000000000"
+							}
+						}
+					}
+				}
+			},
 
-      "GetFriendsResponse": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": "string",
-              "description": "Partner's Title",
-              "example": "Shelter for homeless animals 'Sirius'"
-            },
-            "url": {
-              "type": "string",
-              "description": "Partner's URL",
-              "example": "https://dogcat.com.ua"
-            },
-            "addressUrl": {
-              "type": "string",
-              "description": "Partner's address URL",
-              "example": "https://goo.gl/maps/iq8NXEUf31EAQCzc6"
-            },
-            "imageUrl": {
-              "type": "string",
-              "description": "Image URL",
-              "example": "https://storage.googleapis.com/kidslikev2_bucket/pets-support/images/sponsors/frame_287.png"
-            },
-            "address": {
-              "type": "string",
-              "description": "Partner's address",
-              "example": "Fedorivka, Kyiv Oblast, Ukraine, 07372"
-            },
-            "workDays": {
-              "type": "array",
-              "description": "The work days of the organization",
-              "items": {
-                "$ref": "#/components/schemas/WorkDay"
-              },
-              "example": [
-                { "isOpen": false },
-                { "isOpen": false },
-                { "isOpen": false },
-                { "isOpen": false },
-                { "isOpen": false },
-                { "isOpen": true, "from": "11:00", "to": "16:00" },
-                { "isOpen": true, "from": "11:00", "to": "16:00" }
-              ]
-            },
-            "phone": {
-              "type": "string",
-              "description": "Partner's text",
-              "example": "+380931934069"
-            },
-            "email": {
-              "type": "string",
-              "description": "Parnter's emai;",
-              "example": "dogcat.sirius.example@gmail.com"
-            }
-          }
-        }
-      },
+			"GetFriendsResponse": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"title": {
+							"type": "string",
+							"description": "Partner's Title",
+							"example": "Shelter for homeless animals 'Sirius'"
+						},
+						"url": {
+							"type": "string",
+							"description": "Partner's URL",
+							"example": "https://dogcat.com.ua"
+						},
+						"addressUrl": {
+							"type": "string",
+							"description": "Partner's address URL",
+							"example": "https://goo.gl/maps/iq8NXEUf31EAQCzc6"
+						},
+						"imageUrl": {
+							"type": "string",
+							"description": "Image URL",
+							"example": "https://storage.googleapis.com/kidslikev2_bucket/pets-support/images/sponsors/frame_287.png"
+						},
+						"address": {
+							"type": "string",
+							"description": "Partner's address",
+							"example": "Fedorivka, Kyiv Oblast, Ukraine, 07372"
+						},
+						"workDays": {
+							"type": "array",
+							"description": "The work days of the organization",
+							"items": {
+								"$ref": "#/components/schemas/WorkDay"
+							},
+							"example": [
+								{ "isOpen": false },
+								{ "isOpen": false },
+								{ "isOpen": false },
+								{ "isOpen": false },
+								{ "isOpen": false },
+								{ "isOpen": true, "from": "11:00", "to": "16:00" },
+								{ "isOpen": true, "from": "11:00", "to": "16:00" }
+							]
+						},
+						"phone": {
+							"type": "string",
+							"description": "Partner's text",
+							"example": "+380931934069"
+						},
+						"email": {
+							"type": "string",
+							"description": "Parnter's emai;",
+							"example": "dogcat.sirius.example@gmail.com"
+						}
+					}
+				}
+			},
 
-      "GetNewsResponse": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "imgUrl": {
-              "type": "string",
-              "description": "Image URL",
-              "example": "https://www.nytimes.com/images/2023/04/16/magazine/16mag-LOR/16mag-LOR-blog480.jpg"
-            },
-            "title": {
-              "type": "string",
-              "description": "Title",
-              "example": "What I Learned Dogsitting for New York City’s Opulent Elite"
-            },
-            "text": {
-              "type": "string",
-              "description": "New's text",
-              "example": "In a city of yawning class inequality, some side hustles let you glimpse how the other half lives."
-            },
-            "date": {
-              "type": "string",
-              "description": "New's creation date",
-              "example": "I2023-04-11T09:00:18+0000"
-            },
-            "url": {
-              "type": "string",
-              "description": "New's URL",
-              "example": "https://www.nytimes.com/2023/04/11/magazine/dogsitting-rich-new-york.html"
-            },
-            "id": {
-              "type": "string",
-              "description": "Notice's ID",
-              "example": "nyt://article/8d29f1fc-d146-509d-8ceb-5a5b17d7886b"
-            }
-          }
-        }
-      },
+			"GetNewsResponse": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"imgUrl": {
+							"type": "string",
+							"description": "Image URL",
+							"example": "https://www.nytimes.com/images/2023/04/16/magazine/16mag-LOR/16mag-LOR-blog480.jpg"
+						},
+						"title": {
+							"type": "string",
+							"description": "Title",
+							"example": "What I Learned Dogsitting for New York City’s Opulent Elite"
+						},
+						"text": {
+							"type": "string",
+							"description": "New's text",
+							"example": "In a city of yawning class inequality, some side hustles let you glimpse how the other half lives."
+						},
+						"date": {
+							"type": "string",
+							"description": "New's creation date",
+							"example": "I2023-04-11T09:00:18+0000"
+						},
+						"url": {
+							"type": "string",
+							"description": "New's URL",
+							"example": "https://www.nytimes.com/2023/04/11/magazine/dogsitting-rich-new-york.html"
+						},
+						"id": {
+							"type": "string",
+							"description": "Notice's ID",
+							"example": "nyt://article/8d29f1fc-d146-509d-8ceb-5a5b17d7886b"
+						}
+					}
+				}
+			},
 
-      "BadRequestError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Response message for error code 400",
-            "example": "Bad request"
-          }
-        }
-      },
-      "UnauthorizedError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Response message for error code 401",
-            "example": "Unauthorized"
-          }
-        }
-      },
-      "NotFoundError": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "description": "Response message for error code 404",
-            "example": "Not found"
-          }
-        }
-      },
+			"BadRequestError": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "Response message for error code 400",
+						"example": "Bad request"
+					}
+				}
+			},
+			"UnauthorizedError": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "Response message for error code 401",
+						"example": "Unauthorized"
+					}
+				}
+			},
+			"NotFoundError": {
+				"type": "object",
+				"properties": {
+					"message": {
+						"type": "string",
+						"description": "Response message for error code 404",
+						"example": "Not found"
+					}
+				}
+			},
 
-      "WorkDay": {
-        "type": "object",
-        "properties": {
-          "isOpen": {
-            "type": "boolean",
-            "description": "Indicates if the organization is open on this day"
-          },
-          "from": {
-            "type": "string",
-            "description": "The opening time of the organization (e.g., '09:00')"
-          },
-          "to": {
-            "type": "string",
-            "description": "The closing time of the organization (e.g., '17:00')"
-          }
-        },
-        "example": {
-          "isOpen": false
-        }
-      }
-    },
+			"WorkDay": {
+				"type": "object",
+				"properties": {
+					"isOpen": {
+						"type": "boolean",
+						"description": "Indicates if the organization is open on this day"
+					},
+					"from": {
+						"type": "string",
+						"description": "The opening time of the organization (e.g., '09:00')"
+					},
+					"to": {
+						"type": "string",
+						"description": "The closing time of the organization (e.g., '17:00')"
+					}
+				},
+				"example": {
+					"isOpen": false
+				}
+			}
+		},
 
-    "securitySchemes": {
-      "Bearer": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "JWT"
-      }
-    }
-  }
+		"securitySchemes": {
+			"Bearer": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		}
+	}
 }
