@@ -23,7 +23,7 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static('tmp'));
+app.use(express.static('public'));
 
 app.use('/api/api-docs', swaggerRouter);
 
