@@ -1,16 +1,16 @@
 const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
+const path = require('path');
 
 const swaggerRouter = express.Router();
 
-const options = {
-	explorer: true,
-	customJsStr: 'console.log("Hello World")',
-};
+swaggerRouter.use(
+	'/swagger-ui',
+	express.static(path.join(__dirname, '../node_modules/swagger-ui-dist'))
+);
 
-swaggerRouter.use('/swagger-ui', express.static('node_modules/swagger-ui-dist'));
 swaggerRouter.use('/', swaggerUi.serve);
-swaggerRouter.get('/', swaggerUi.setup(swaggerDocument, options));
+swaggerRouter.get('/', swaggerUi.setup(swaggerDocument));
 
 module.exports = swaggerRouter;

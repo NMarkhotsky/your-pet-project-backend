@@ -2,5 +2,8 @@
 	"version": 2,
 	"name": "mongoDB",
 	"builds": [{ "src": "server.js", "use": "@vercel/node" }],
-	"routes": [{ "src": "/(.*)", "dest": "/server.js" }]
+	"routes": [
+		{ "src": "/(.*)", "dest": "/server.js" },
+		{ "src": "/swagger-ui/(.*)", "dest": "/node_modules/swagger-ui-dist/$1" }
+	]
 }
