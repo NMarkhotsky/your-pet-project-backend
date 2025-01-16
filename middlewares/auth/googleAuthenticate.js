@@ -4,12 +4,12 @@ const { Users } = require('../../models');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 
-const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, BASE_URL } = process.env;
+const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, BASE_URL, FRONTEND_URL} = process.env;
 
 const googleParams = {
   clientID: GOOGLE_CLIENT_ID,
   clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: `${BASE_URL}/auth/google/callback`,
+  callbackURL: `${FRONTEND_URL}/auth/google/callback`,
   passReqToCallback: true,
 };
 
